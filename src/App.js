@@ -1,9 +1,12 @@
 import './App.css';
+import Body from './components/Body';
+import Header from './components/Header';
 
 function App() {
   return (
-    <div className="App">
-     <h1 className='text-7xl n'>Sandeep</h1>
+    <div >
+      <Header />
+      <Body />
     </div>
   );
 }
