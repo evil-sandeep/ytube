@@ -5,7 +5,7 @@ import MainComponent from './MainComponent'
 const Body = () => {
     return (
         <>
-            <div className='flex'>
+            <div className='flex overflow-hidden'>
                 <SideBar />
                 <MainComponent />
             </div>
