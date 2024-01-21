@@ -4,9 +4,9 @@ import VedioComponent from './VedioComponent'
 
 const MainComponent = () => {
   return (
-    <div>
-        <ButtonList/>
-        <VedioComponent/> 
+    <div className='col-span-11'>
+      <ButtonList />
+      <VedioComponent />
     </div>
   )
 }
