@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { YT_API_KEY } from '../utils/constant'
 import VedioCards from './VedioCards'
+import { Link } from 'react-router-dom'
 
 
 const VedioComponent = () => {
@@ -24,7 +25,7 @@ const VedioComponent = () => {
 
   return (
     <div className='flex flex-wrap'>
-      {vedio.map(vedioList=> <VedioCards key={vedioList.id} info={vedioList} />)}
+      {vedio.map(vedioList=> <Link to={"/watch?v="+vedioList.id}><VedioCards key={vedioList.id} info={vedioList} /> </Link> )}
       
      
     </div>
