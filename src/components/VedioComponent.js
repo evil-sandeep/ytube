@@ -25,7 +25,7 @@ const VedioComponent = () => {
 
   return (
     <div className='flex flex-wrap'>
-      {vedio.map(vedioList=> <Link to={"/watch?v="+vedioList.id}><VedioCards key={vedioList.id} info={vedioList} /> </Link> )}
+      {vedio.map(vedioList=> <Link to={"/watch?v="+vedioList.id } key={vedioList.id}><VedioCards  info={vedioList} /> </Link> )}
       
      
     </div>

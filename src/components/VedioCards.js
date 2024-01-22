@@ -3,7 +3,7 @@ import React from 'react'
 
 const VedioCards = ({ info }) => {
 
-  console.log(info)
+  // console.log(info)
   if (!info) {
     return <div>No Vedio available</div>
   }
