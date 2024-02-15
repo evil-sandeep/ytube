@@ -4,6 +4,7 @@ import VedioCards from './VedioCards'
 import { Link } from 'react-router-dom'
 
 
+
 const VedioComponent = () => {
   const [vedio, setVedio] = useState([])
 
@@ -26,7 +27,7 @@ const VedioComponent = () => {
   return (
     <div className='flex flex-wrap'>
       {vedio.map(vedioList=> <Link to={"/watch?v="+vedioList.id } key={vedioList.id}><VedioCards  info={vedioList} /> </Link> )}
-      
+     
      
     </div>
   )
