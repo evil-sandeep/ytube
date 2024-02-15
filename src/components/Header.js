@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toggleMenu } from '../utils/AppSlice';
 import { YT_SEARCH_API } from '../utils/constant';
+import { cacheResults } from '../utils/searchSlice';
 
 const Header = () => {
     const [searchQry, setSearchQry] = useState("");
     const [suggestion, setSuggestion] = useState([]);
     const [showSuggestion, setShowSuggestion] = useState(false);
+
+    const searchCache = useSelector((store) => store.search)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -17,12 +20,24 @@ const Header = () => {
                 }
                 const data = await response.json();
                 setSuggestion(data[1]);
+                //Update Cache
+                dispatch(cacheResults({
+                    [searchQry]:data[1]
+                }))
             } catch (error) {
                 console.error(error);
             }
         };
 
-        const timer = setTimeout(() => fetchData(), 200);
+        const timer = setTimeout(() => {
+            if (searchCache[searchQry]) {
+                setSuggestion(searchCache[searchQry]);
+            }
+            else {
+                fetchData()
+            }
+        }, 200);
+
         return () => {
             clearTimeout(timer);
         };
